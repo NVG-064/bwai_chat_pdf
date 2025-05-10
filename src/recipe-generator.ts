@@ -111,27 +111,8 @@ async function main() {
     console.log("Generating recipe with ingredients:", ingredients.join(", "));
     const recipe = await generateRecipe(ingredients);
     
-    // Print the recipe in a formatted way
-    console.log("\n=== Generated Recipe ===\n");
-    console.log(`Title: ${recipe.title}`);
-    console.log(`Description: ${recipe.description}\n`);
-    
-    console.log("Ingredients:");
-    recipe.ingredients.forEach(ing => {
-      console.log(`- ${ing.amount} ${ing.unit} ${ing.name}`);
-    });
-    
-    console.log("\nInstructions:");
-    recipe.instructions.forEach((step, index) => {
-      console.log(`${index + 1}. ${step}`);
-    });
-    
-    console.log("\nAdditional Information:");
-    console.log(`Prep Time: ${recipe.prepTime}`);
-    console.log(`Cook Time: ${recipe.cookTime}`);
-    console.log(`Servings: ${recipe.servings}`);
-    console.log(`Difficulty: ${recipe.difficulty}`);
-    console.log(`Tags: ${recipe.tags.join(", ")}`);
+    // Output the recipe in JSON format
+    console.log(JSON.stringify(recipe, null, 2));
     
   } catch (error) {
     console.error("Error:", error);
