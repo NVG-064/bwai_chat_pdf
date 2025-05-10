@@ -22,7 +22,7 @@ async function chatWithPDF(filename: string, customPrompt?: string) {
     const { text } = await pdf(dataBuffer);
     
     // TODO: Add custom prompt
-    const defaultPrompt = "";
+    const defaultPrompt = "You are a helpful assistant that can answer question about the content of this PDF file. Please provide accurate and relevant information based on the document conntent.";
     const prompt = `
       ${customPrompt || defaultPrompt}
       
@@ -73,3 +73,4 @@ if (!filename) {
 // TODO: Read custom prompt
 
 // TODO: Chat with PDF
+chatWithPDF(filename);
